@@ -1,0 +1,248 @@
+:root{ /*colores utilizados en el sitio web*/
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #A569BD;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+/** Globales **/
+html{
+    font-size: 62.5%; /*Se reinicia el tamaño a 62.5%, esto hace los rem más sencillos de utilizar*/
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory; /*sirve para dirigir el scroll, mandatory te manda a la siguiente sección, proximity: si no das mucho schroll te regresa*/
+}
+
+/**Scroll Snap**/
+@media (min-width: 480px) {
+    .navegacion-principal, .servicios, .formulario, .footer{
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+}
+
+
+*, *:before, *:after { /*el asterisco es para todos los elementos, la coma para dos clases con el mismo contenido, el before y after son pseudoelementos*/
+    box-sizing: inherit;
+  }
+body{
+    font-size: 16px; /* 1 rem = 10px*/
+    font-family: 'Krub', sans-serif; /*cooiado de Google Fonts: el tipo de letra seleciconado*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*color degradado a la página de abajo hacia arriba*/
+}
+.contenido{ /*segunda clase de la nav, sólo afecta al texto*/
+    max-width: 120rem; /*margen entre las orillas de la página web, max-width como maximo 1200 pixeles*/
+    margin: 0 auto; /*tiene 4 valores, pero si son iguales sólo poner 2*/
+}
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem; /*espacio del boton arriba-abajo e izq-der*/
+    margin-top: 3rem; /*espacio entre los elementos*/
+    font-size: 2rem;
+    text-decoration: none; /*sin subrayar*/
+    text-transform: uppercase; /*letra mayuscula*/
+    font-weight: bold; /*negrita, 700 es otra forma de declarar*/
+    border-radius: .5rem; /*redondea esquinas del boton*/
+    width: 90%; /*espacio del boton*/
+    text-align: center;
+    border: none; /*solo lo aplica al boton del input (enviar)*/
+}
+@media (min-width: 480px) {
+    .boton{
+        width: auto; /*espacio del boton en dispositivos mayores a 480px*/
+    }
+}
+.boton:hover{ /*cuando el cursor este sobre el elemento*/
+    cursor: pointer;
+}
+.sombra{
+    box-shadow: 0px 5px 15px -3px rgba(112,112,112,0.54); /*sombra alredeor del main*/
+    background-color: var(--blanco); /*color de fondo del main*/
+    padding: 2rem; /*separa el main de otras secicones*/
+    border-radius: 1rem; /*redondea las orillas del main*/
+}
+
+/**Tipografía**/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+
+/*rem se recomienda por los diferentes dispositivos (tablet, smartwatch, televisión), ES RELATIVO AL DOCUMENTO*/
+/*em se creo para diferentes tamaños de letra de pantallas, antes se usaban pixeles*/
+.titulo span{ 
+    font-size: 2rem; /*El sitio web se va a adaptar a más a una gran cantidad de navegadores*/
+}
+
+/**Utilidades**/
+.w-sm-100{
+    width: 100%;
+}
+@media (min-width: 480px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/**Navegacion Principal**/
+.nav-bg{
+    background-color: var(--secundario); /*sólo afecta a la navegación el color de fondo*/
+}
+.navegacion-principal{ /*sólo afecta a los elementos dentro de la navegación*/  
+    display: flex; /*flexbox es diseñado para alinear elementos en los diseños, utilizada para los layouts*/
+    flex-direction: column; /*menú horizontal*/
+    
+}
+@media (min-width: 480px) { /*768 tamaño de una tablet, 480 tamaño teléfono, 1140 laptop o PC, */
+    .navegacion-principal{
+        flex-direction: row; /*menú horizontal después de 768px*/
+        justify-content: space-evenly; /*propiedad del flex para separar el contenido*/
+    }
+}
+.navegacion-principal a{ /*sólo afecta a los enlaces dentro de la navegación porque es específico*/
+    display: block; /*al agregar media query mayor a 480px, cuando sea menor abarcará todo el menú*/
+    text-align: center; /*al agregar media query mayor a 480px, cuando sea menor centra el menú*/
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700; /*letra en negrita, con bold hace lo mismo*/
+    padding: 1rem; /*esapacio alrededor de los elementos*/
+}
+/* a:hover sin espacio*/
+.navegacion-principal a:hover{ /*efecto que se hace cuando el cursor pasa por el elemento*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/**Imagen de fondo**/
+.hero{
+    background-image: url(../img/hero.jpg); /*agregar imagen*/
+    background-repeat: no-repeat; /*si se hace chica la página no repite la imagen*/
+    background-size: cover; /*Cubre el resto de la página con la imagen*/
+    height: 410px;
+    position: relative; /*posiscion padre*/
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute; /*posicion hijo*/
+    /** background-color: rgba(0, 0, 0, .6); ANTERIOR FORMA DE DEFINIR COLOR Y TRANSPARENCIA**/
+    background-color: rgb(0 0 0 / 75%);
+    /*top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;*/
+    width: 100%;
+    height: 100%;
+    /* - - - - centrar horizontalmente y verticalmente - - - - */
+    display: flex; /*1 dimensión: row o column*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* - - - - centrar horizontalmente y verticalmente - - - - */
+}
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+/**Servicios**/
+@media (min-width: 480px) {
+    .servicios{
+        display: grid; /*2 dimensiones: row y column*/
+        grid-template-columns: 1fr 1fr 1fr; /*33.3% 33.3% 33.3% o repeat(3, 1fr)*/
+        column-gap: 1rem;
+    } 
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+    color: var(--secundario);
+    font-weight: 400; /*normal*/
+}
+.servicio p{
+    line-height: 2; /*interlineado del párrafo*/
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem; /*altura*/
+    width: 15rem; /*ancho*/
+    background-color: var(--primario);
+    border-radius: 50%; /*si tenemos un cuadrado y redondeamos al 50% sus esquinas da un círculo exacto*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/**Contacto**/
+.formulario{
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /*min tiene 2 parámetros, utiliza el valor más pequeño*/
+    margin: 0 auto; /*centra horizontalmente*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+ border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /*mayusculas*/
+    font-weight: 700; /*bold*/
+    margin-bottom: 2rem;
+    color: var(--blanco);
+}
+@media (min-width: 480px) {
+    .contenido-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /*50% 50% o 1fr 1fr*/
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /*separacion de columnas*/
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){ /*si tengo varios con el mismo nombre, en el paréntesis le indico a cual me refiero*/
+        grid-column: 1 / 3; /*le indico las columnas que debe abarcar*/
+    }
+}
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold; /*700*/
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo textarea{
+    height: 20rem; /*altura*/
+
+} 
+.input-text{
+    width: 100%; /*todo el espacio disponible*/
+    border: none;
+    padding: 1.5rem; /*ancho del label*/
+    border-radius: .5rem; /*esquinas redondeadas*/
+} 
+
+/**Footer**/
+.footer{
+    text-align: center;
+}
