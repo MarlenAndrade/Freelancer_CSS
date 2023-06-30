@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
     <title>Diseñador Freelancer</title>
     <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
@@ -36,7 +37,7 @@
                 <circle cx="12" cy="11" r="3" />
                 <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
               </svg>
-               Temixco, Morelos</p>
+               Morelos, México</p>
         <a class="boton" href="#">Contactar</a>
         </div> <!--.contenido-hero-->
     </section>
@@ -126,7 +127,12 @@
                     </div> <!--.contenido-campos-->
                     
                     <div class="alinear-derecha flex">
-                        <input class="boton w-sm-100" type="submit" value="Enviar">
+                        <script>
+                            function alerta(){
+                                alert("¡Lo siento! Por el momento no está disponible el formulario de contacto");
+                            }
+                        </script>
+                        <input class="boton w-sm-100" type="submit" onclick="alerta()" value="Enviar">
                     </div>     
                 </fieldset>
             </form>
